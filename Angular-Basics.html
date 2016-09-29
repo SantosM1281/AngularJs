@@ -11,92 +11,128 @@
     <title>Template</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
-
+    <link href="css/main.css" rel="stylesheet">
   </head>
-
   <body>
-    <div class="container">
+    <div class="container ">
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-6">
-          <h2>1.1 | Ramp Up</h2>
-          <h2>What you need to know:</h2>
-          <p>Must know: HTML, CSS &amp; JavaScript </p>
-        <h2>Nice to know:</h2>
-          <p>Automated Testing <br> 
-            BDD - Behavior Driven Development <br>
-            TDD - Test Driven Development <br>
-            etc
-          </p>
-        <h2>Not so important:</h2>
-          <p>jQuery <br>
-            Ruby on Rails <br>
-            Python, PHP, etc <br>
-            Databases
-          </p>
-          <p> <strong>Note:</strong> Angular is just a front end framework so just knowing javascript is fine.</p>
-          <h2>Why Angular?</h2>
-            <p>If you're using JavaScript to create a dynamic website. Angular is a good choice.</p>
-              <ul>
-                <li>Angular helps you organize your JavaScript</li>
-                <li>Angular helps create responsice (as in fast) websites</li>
-                <li>Angular plays well with jQuery</li>
-                <li>Angular is easy to test</li>
-              </ul>
+        	<div class="section-light">
+				<h2>1.1 | Ramp Up</h2>
+          		<h2>What you need to know:</h2>
+		          <p>Must know: HTML, CSS &amp; JavaScript </p>
+		        <h2>Nice to know:</h2>
+		          <p>Automated Testing <br> 
+		            BDD - Behavior Driven Development <br>
+		            TDD - Test Driven Development <br>
+		            etc
+		          </p>
 
-          <h2>Directives:</h2> <!-- Directives -->
-            <p>A Directive is a marker on a HTML tag that tells Angular to run or reference some JavaScript code.</p>
-            <p>How we bind the behavior</p>
+		        <h2>Not so important:</h2>
+		          <p>jQuery <br>
+		            Ruby on Rails <br>
+		            Python, PHP, etc <br>
+		            Databases
+		          </p>
+		          <p> <strong>Note:</strong> Angular is just a front end framework so just knowing javascript is fine.</p>
+		          <h2>Why Angular?</h2>
+		            <p>If you're using JavaScript to create a dynamic website. Angular is a good choice.</p>
+		              <ul>
+		                <li>Angular helps you organize your JavaScript</li>
+		                <li>Angular helps create responsice (as in fast) websites</li>
+		                <li>Angular plays well with jQuery</li>
+		                <li>Angular is easy to test</li>
+		              </ul>
+		            <p>Must know: HTML, CSS &amp; JavaScript </p>
 
-          
+				<h2>Nice to know:</h2>
+		          <p>Automated Testing <br> 
+		            BDD - Behavior Driven Development <br>
+		            TDD - Test Driven Development <br>
+		            etc
+		          </p>
+
+		        <h2>Not so important:</h2>
+		          <p>jQuery <br>
+		            Ruby on Rails <br>
+		            Python, PHP, etc <br>
+		            Databases
+		          </p>
+		          <p> <strong>Note:</strong> Angular is just a front end framework so just knowing javascript is fine.</p>
+		          <h2>Why Angular?</h2>
+		            <p>If you're using JavaScript to create a dynamic website. Angular is a good choice.</p>
+		              <ul>
+		                <li>Angular helps you organize your JavaScript</li>
+		                <li>Angular helps create responsice (as in fast) websites</li>
+		                <li>Angular plays well with jQuery</li>
+		                <li>Angular is easy to test</li>
+		              </ul>
+
+		        <h2>Directives:</h2> <!-- Directives -->
+		            <p>A Directive is a marker on a HTML tag that tells Angular to run or reference some JavaScript code.</p>
+		            <p>How we bind the behavior</p>
+
+                <h2>Modules:</h2> <!-- Modules -->
+		            <ul>
+		              <li>Where we write pieces of our Angular application.</li>
+		              <li>Makes our code more maintainable, testable, and readable.</li>
+		              <li>Where we define dependencies for our app.</li>
+		              <li>Modules can use other Modules.</li>
+		            </ul>
+          			<h1>Creating Our First Module</h1>
+            			<p>var app = angular.module('store', []);</p>
+
+          		<h2>Expressiions:</h2> <!-- Expressiions -->
+            		<p>Allow you to insert dynamic values into your HTML.</p>
+            		<h3>Numerical Operations:</h3>
+		            	<p>
+		            		I am {{4 + 6}}
+		            	</p>
+            	<h3>String Operations:</h3>
+		            	<p>
+		            		{{"Hello" + " you"}}
+		            	</p>	
+
+		        <h2>1.2 | Coding excercise</h2>
+		        
+	       	    <h2>1.3 | Index HTML Setup</h2>
+	            <h2>Working With Data</h2>
+		          <p> Q. How do we get it out of this variable and onto our page? <br>
+		          	var gem = { <br>
+		          	name: 'Dodecahedron', <br>
+		          	price: 2.95, <br>
+		          	description: '...',<br>
+		          }
+		          </p>
+	          	<p>A. We need to use a controller</p>
+
+		        <h2>Controllers</h2> <!-- Controllers -->
+		          	<p>Controllers are where we define our apps beharvior by defininf functions and values.</p>
+		          	<p>Wrapping your JavaScript in a closure is a good habit!</p>
+		          	<p>(function(){ <br>
+		          		var app = angular.module('store', []); <br>
+		          		<br>
+		          		<br>
+		          	})();
+		          	</p>
+
+	          	<h2>1.4 | Coding excercise</h2>
+
+	          	<h2>1.5 | Built-In Directives</h2>
+	          		<h3>What We Have Learned So Far</h3>
+	          		<ul style="list-style-type:none">
+	          			<li><strong>Directives</strong> - HTML annotations that trigger JavaScript behaviors</li>
+	          			<li><strong>Modules</strong> - Where our application components live</li>
+	          			<li><strong>Controller</strong> - Where we add application behaviors</li>
+	          			<li><strong>Expressions</strong> - How values get displayed within the page</li>
+	          		</ul>
+	          		
+	          	<h2>1.6 | Coding excercise</h2>	            
         </div>
-<br><br><br><br><br>
-        <div class="col-md-6">
-          <h2>Modules:</h2> <!-- Modules -->
-            <ul>
-              <li>Where we write pieces of our Angular application.</li>
-              <li>Makes our code more maintainable, testable, and readable.</li>
-              <li>Where we define dependencies for our app.</li>
-              <li>Modules can use other Modules.</li>
-            </ul>
-          <h1>Creating Our First Module</h1>
-            <p>var app = angular.module('store', []);</p>
-
-          <h2>Expressiions:</h2> <!-- Expressiions -->
-            <p>Allow you to insert dynamic values into your HTML.</p>
-            <h3>Numerical Operations:</h3>
-            	<p>
-            		I am {{4 + 6}}
-            	</p>
-            <h3>String Operations:</h3>
-            	<p>
-            		{{"Hello" + " you"}}
-
-          <h2>1.2 | Coding excercise</h2>
-
-       </div>
+<!-- <br><br><br><br><br> -->
        <div class="col-md-6">
-       	  <h2>1.3 | Index HTML Setup</h2>
-          <h2>Working With Data</h2>
-	          <p> Q. How do we get it out of this variable and onto our page? <br>
-	          	var gem = { <br>
-	          	name: 'Dodecahedron', <br>
-	          	price: 2.95, <br>
-	          	description: '...',<br>
-	          }
-	          </p>
-          	<p>A. We need to use a controller</p>
 
-          <h2>Controllers</h2> <!-- Controllers -->
-          	<p>Controllers are where we define our apps beharvior by defininf functions and values.</p>
-          	<p>Wrapping your JavaScript in a closure is a good habit!</p>
-          	<p>(function(){ <br>
-          		var app = angular.module('store', []); <br>
-          		<br>
-          		<br>
-          	})();
-          	</p>
-          <h2>1.4 | Coding excercise</h2>
       </div>
 
       <hr>

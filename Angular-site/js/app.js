@@ -2,12 +2,21 @@
     var app = angular.module('store', []); 
 
     app.controller('StoreController', function(){  //Notice that controller is attached to our app (inside).
-    	this.product = gem;
+    	this.products = gems;
     });
 
-    var gem = {
-	  name: 'Dodecahedron',
+    var gems = [
+    {
+	  name: "Dodecahedron",
 	  price: 2.95,
-	  description: 'eastgfjbb',
-	}
+	  description: ". . .",
+	  canPurchase: true,
+	},
+	{
+	  name: "Pentagonal Gem",
+	  price: 2.95,
+	  description: ". . .",
+	  canPurchase: false,
+	},
+    ];
 })();
