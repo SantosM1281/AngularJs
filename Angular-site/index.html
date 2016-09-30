@@ -44,22 +44,18 @@
   </ul>
 </section>
 
-<div class="panel" ng-show="tab === 1">
-    <h4> Description </h4>
-      <p> {{product.description}} </p>
-</div>
-                  </p>
-                  <p>div class="panel" ng-show="tab === 2"<br>
-                    h4 Specification/h4 <br>
-                    (blockquote)None yet{/blockquote) <br>
-                    /div
-                  </p>
-                  <p>div class="panel" ng-show="tab === 3"<br>
-                    h4 Reviews/h4 <br>
-                    (blockquote)None yet{/blockquote) <br>
-                    /div
-                  </p>
-
+    <div class="panel" ng-show="tab === 1">
+        <h4> Description </h4>
+            {{product.description}}
+    </div>
+    <div class="panel" ng-show="tab === 2">
+        <h4> Specification </h4>
+            <blockquote>None yet</blockquote>
+    </div>
+    <div class="panel" ng-show="tab === 3">
+        <h4> Reviews </h4>
+            <blockquote> None yet </blockquote>
+    </div>
 
     {{store.product.name}} <!-- Would never print a value -->
 
