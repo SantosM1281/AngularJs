@@ -145,7 +145,74 @@
        					<li><strong>ng-repeat</strong> - repeat a section for each item in an Array <br>
        						li ng-repeat="product in store.products"> {{product.name}} /li</li>
        				</ul>
+       				<h3>Formatting with Filters</h3>
+	       				*Our Recipe {{ data | filter:options }}
+	       				<p>date<br>
+	       					{{ '1388123412323' | date:'MM/dd/yyyy @ h:mma' }}  12/27/2013 @12:50am</p>
+	       				<p>uppercase &amp; lowercase<br>
+	       					{{ 'octagon gem' | uppercase }} OCTAGON GEM</p>
+	       				<p>limitTo<br>
+	       					{{ 'My Descrition' | limitTo:8 }} My Descr<br>
+	       					li ng-repeat="product in store.products | limitTo:3" </p>
+	       				<p>ordeBy<br>
+	       					li ng-repeat="product in store.products | orderBy:'-price'" </p
+	       			<h3>Adding an Image Array to our Product Array</h3>
+	       				<p> var gems = [
+	       					name:
+	       					price:
+	       					description:
+	       					images: [
+	       						{
+	       						full: 'dodecahedron-01-full.jpg'
+	       					}
+	       					]]
+	       				</p>
+	       			<h2>2.2 | Using filters</h2>
+	       				<p> using an angular filter to display the price as a currency <br> 
+	       					<em class="pull-right">{{product.price | currency}}</em> </p>
 
+	       			<h2>2.3 | Displaying the First Image</h2>
+	       				<p> div class="gallery"> <br>
+								<img ng-src="{{product.images[0]}}"/> <br>
+							/div>
+						</p>
+
+					<h2>2.4 | Display All Thumbnails</h2>
+					<p>
+						div class="gallery" <br> 
+					        div class="img-wrap" <br>
+					          <img ng-src="{{product.images[0]}}" /><br>
+					        /div <br>
+					        ul class="img-thumbnails clearfix"><br>
+					          li class="small-image pull-left thumbnail" ng-repeat="image in product.images" <br>
+					            img ng-src="{{image}}" /><br>
+					          li<br>
+					        ul<br>
+					    /div
+					</p>
+
+	       			<h2>2.5 | NO Images, NO Gallery</h2>
+	       				<p>
+	       					div class="gallery" ng-show="product.images.length"<br>
+          						img class="img img-circle img-thumbnail center-block" ng-src="{{product.images[0]}}" /> <br>
+          							ul class="clearfix" <br>
+            							li class="small-image pull-left thumbnail" ng-repeat="image in product.images" <img ng-src="{{image}}" /> /li <br>
+          							/ul <br>
+        					/div <br>
+	       				</p>
+
+
+
+	       				<p><em class="pull-right">${{product.price | currency}}</em></p>
+	       				<p><strong>Display the First Image</strong><br>
+	       				<img ng-src="{{product.images[0]}}"/></p>
+	       				<p><strong>Display all Thumbnails</strong><br>
+	       					li class="small-image pull-left thumbnail" ng-repeat="image in product.images"> 
+            					<img ng-src="{{image}}" />
+          					/li
+	       				</p>
+
+	       			<h2>2.6 | </h2>
        		</div>
        		
 

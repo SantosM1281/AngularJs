@@ -8,13 +8,13 @@
     var gems = [
     {
 	  name: "Dodecahedron",
-	  price: 2.95,
+	  price: 2.00,
 	  description: ". . .",
 	  canPurchase: true,
 	},
 	{
 	  name: "Pentagonal Gem",
-	  price: 2.95,
+	  price: 5.95,
 	  description: ". . .",
 	  canPurchase: false,
 	},
