@@ -201,18 +201,55 @@
         					/div <br>
 	       				</p>
 
+	       			<h2>2.6 | Tabs Inside Out</h2>
+	       				<h3>A Simple set of Tabs</h3>
+		       				<p>
+		       					section <br>
+		       						ul class="nav nav-pills" <br>
+		       							li (a href ng-click="tab =1") Description /a /li <br> <!-- tab = 1 assigning a value to a tab -->
+		       							li a href Specification /a /li <br>
+		       							li a href Reviews /a /li <br>
+		       						/ul<br>
+		       					/section
+		       				</p>
+
+	       				<h3>Whao, it's dynamic and stuff...</h3>
+	       					<p>When ng-click changes the value of the tab...<br>
+	       						... {{tab}} expression automatically gets updated!</p>
+	       					<p>Expressions define a 2-way Data Binding...<br>
+	       						this mean Expression are re-evaluated when a property changes.</p>
+
+	       				<h3>Let's add the tab content panels</h3>
+	       					<p>div class="panel" ng-show="tab === 1"<br>
+	       						h4 Description/h4 <br>
+	       						p {{product.description}} /p <br>
+	       						/div
+	       					</p>
+	       					<p>div class="panel" ng-show="tab === 2"<br>
+	       						h4 Specification/h4 <br>
+	       						(blockquote)None yet{/blockquote) <br>
+	       						/div
+	       					</p>
+	       					<p>div class="panel" ng-show="tab === 3"<br>
+	       						h4 Reviews/h4 <br>
+	       						(blockquote)None yet{/blockquote) <br>
+	       						/div
+	       					</p>
+	       					<h3>Q. How do we set an initial value for a tab?</h3>
+	       					<p>A.ng-init directive</p>
+
+	       					<h3>Setting the Initial Value:</h3>
+	       						<p>section <br>
+	       							<ul class="nav nav-pills">
+	       								<li>li <a href ng-click="tab = 1">Description</a></li>
+	       								<li>li <a href ng-click="tab = 2">Specifications</a></li>
+	       								<li>li <a href ng-click="tab = 3">Reviews</a></li>
+	       							</ul>
+	       						/section</p>
 
 
-	       				<p><em class="pull-right">${{product.price | currency}}</em></p>
-	       				<p><strong>Display the First Image</strong><br>
-	       				<img ng-src="{{product.images[0]}}"/></p>
-	       				<p><strong>Display all Thumbnails</strong><br>
-	       					li class="small-image pull-left thumbnail" ng-repeat="image in product.images"> 
-            					<img ng-src="{{image}}" />
-          					/li
-	       				</p>
 
-	       			<h2>2.6 | </h2>
+
        		</div>
        		
 

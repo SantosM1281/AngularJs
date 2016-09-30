@@ -11,7 +11,62 @@
     <link href="css/main.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body ng-controller="StoreController as store"> <!-- The scope of the controller is only inside here -->
+    <div ng-repeat="product in store.products">
+      <h1> {{product.name}} </h1>
+      <h2> ${{product.price}} </h2>
+      <p> {{product.description}} </p>
+      <button ng-show="store.product.canPurchase"> Add to Cart </button> <!-- Only show when the expression is true -->
+    </div>
+    <br>
+    <div ng-controller="StoreController as store">
+      <ul class="list group">
+        <li class="list-group-item" ng-repeat="product in store.products">
+          <h3>
+            {{product.name}}
+            <em class="pull-right">{{product.price | currency}}</em>
+          </h3>
+        </li>
+      </ul>
+    </div>
+<section>
+ <ul class="nav nav-pills">
+    <li> <a href ng-click="tab =1"> Description </a> </li> <!-- tab = 1 assigning a value to a tab -->
+    <li> <a href ng-click="tab =2"> Specification </a> </li>
+    <li> <a href ng-click="tab =3"> Reviews </a> </li>
+</ul>
+</section>
+<section ng- init="tab = 1">
+  <ul class="nav nav-pills">
+      <li>li <a href ng-click="tab = 1">Description</a></li>
+      <li>li <a href ng-click="tab = 2">Specifications</a></li>
+      <li>li <a href ng-click="tab = 3">Reviews</a></li>
+  </ul>
+</section>
+
+<div class="panel" ng-show="tab === 1">
+    <h4> Description </h4>
+      <p> {{product.description}} </p>
+</div>
+                  </p>
+                  <p>div class="panel" ng-show="tab === 2"<br>
+                    h4 Specification/h4 <br>
+                    (blockquote)None yet{/blockquote) <br>
+                    /div
+                  </p>
+                  <p>div class="panel" ng-show="tab === 3"<br>
+                    h4 Reviews/h4 <br>
+                    (blockquote)None yet{/blockquote) <br>
+                    /div
+                  </p>
+
+
+    {{store.product.name}} <!-- Would never print a value -->
+
+
+
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
