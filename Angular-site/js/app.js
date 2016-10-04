@@ -29,5 +29,28 @@ app.controller("PanelController", function(){
 	};
 });
 
+// reviews
+
+app.controller("StoreController", function(){
+	this.products = [
+	{
+		name: 'Awesome Multi-touch Keyboard',
+		price: 250.00,
+		description: [...],
+		reviews: {
+			{
+				stars: 5,
+				body: "I love this product!",
+				author: "joe@thomas.com"
+			},
+			{
+				stars: 1,
+				body: "This product sucks!",
+				author: "tim@jones.com"
+			}
+		}
+	}]
+})
+
 
 })();

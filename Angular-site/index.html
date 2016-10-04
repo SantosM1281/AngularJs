@@ -29,21 +29,28 @@
         </li>
       </ul>
     </div>
-  <section ng-controller="PanelController as panel">
+  <!-- Simple Set of Tabs -->
+  <section>
+    <ul class="nav nav-pills">
+      <li><a href="">Description</a></li>
+      <li><a href="">Specifications</a></li>
+      <li><a href="">Reviews</a></li>
+    </ul>
+  </section>
+  <!-- Introducing a new Directive! -->
+  <section class="nav nav-pills">
    <ul class="nav nav-pills">
-      <li ng-class="{ active:tab === 1 }"> 
-        <a href ng-click="panel.tab = 1"> Description </a>
-      </li> <!-- tab = 1 assigning a value to a tab -->
-      <li ng-class="{ active:tab === 2 }">
-        <a href ng-click="panel.tab = 2"> Specification </a>
-      </li>
-      <li ng-class="{ active:tab === 3 }">
-        <a href ng-click="panel.tab = 3"> Reviews </a>
-      </li>
-  </ul>
+      <li> <a href ng-click="tab = 1"> Description </a> </li> <!-- tab = 1 assigning a value to a tab -->
+      <li> <a href ng-click="tab = 2"> Specification </a> </li>
+      <li> <a href ng-click="tab = 3"> Reviews </a> </li>
+              <!-- |assig. val. 2 tab| -->
+    </ul>
+    {{tab}}
+    <hr>
   </section>
 
-    <div class="panel" ng-show="tab === 1">
+<!-- Let's add the tab content panels -->
+    <div class="panel" ng-show="tab === 1"> <!-- shot the right panel id the tab is the right number -->
         <h4> Description </h4>
             {{product.description}}
     </div>
@@ -55,6 +62,38 @@
         <h4> Reviews </h4>
             <blockquote> None yet </blockquote>
     </div>
+
+  <!-- Setting the Initial Value (ng-init) -->
+  <section ng-init="tab = 1">
+    <ul class="nav nav-pills">
+      <li><a href ng-click="tab = 1">Description</a></li>
+      <li><a href ng-click="tab = 2">Specifications</a></li>
+      <li><a href ng-click="tab = 3">Reviews</a></li>
+    </ul>
+  </section>
+
+  <!-- Setting the Active Class: We need to set the class to active if current tab is selected  -->
+  <section ng-init="tab = 1">
+   <ul class="nav nav-pills">
+      <li><a href ng-click="tab = 1"> Description </a></li>
+      <li><a href ng-click="tab = 2"> Specification </a></li>
+      <li><a href ng-click="tab = 3"> Reviews </a></li>
+    </ul>
+  </section>
+  <!-- The ng-class directive: -->
+  <section ng-init="tab = 1">
+   <ul class="nav nav-pills">
+      <li ng-class="{ active:tab === 1 }">
+        <a href ng-click="tab = 1"> Description </a>
+      </li>
+      <li ng-class="{ active:tab === 2 }">
+        <a href ng-click="tab = 2"> Specification </a>
+      </li>
+      <li ng-class="{ active:tab === 3 }">
+        <a href ng-click="tab = 3"> Reviews </a>
+      </li>
+    </ul>
+  </section>
 
     {{store.product.name}} <!-- Would never print a value -->
 
