@@ -27,6 +27,9 @@ app.controller("PanelController", function(){
 	this.selectTab = function(setTab) {
 		this.tab = setTab;
 	};
+	this.isSelected = function(checkTab){
+		return this.tab === checkTab;
+	};
 });
 
 // reviews
@@ -37,7 +40,8 @@ app.controller("StoreController", function(){
 		name: 'Awesome Multi-touch Keyboard',
 		price: 250.00,
 		description: [...],
-		reviews: {
+		images: [...]
+		reviews: [
 			{
 				stars: 5,
 				body: "I love this product!",
@@ -48,7 +52,7 @@ app.controller("StoreController", function(){
 				body: "This product sucks!",
 				author: "tim@jones.com"
 			}
-		}
+		]
 	}]
 })
 
