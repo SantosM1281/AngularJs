@@ -110,41 +110,52 @@
 		            		{{"Hello" + " you"}}
 		            	</p>	
 
-<!--1.2-->      <h2>1.2 | Coding excercise</h2>
-
-	       	    <h2>1.3 | Index HTML Setup</h2>
+<!--1.2-->      <h2>1.2 | Creating a Store Module</h2>
+						<p>The Flatlanders need a store to sell their gems and more! They need it really quick, Angular will do the trick! They have figured out how to manipulate time and space, allowing them to create three-dimensional gems. The buying and selling of their gems has become a popular Flatlander practice and they believe the next step is taking their wonderful wares to the fourth dimension (the web).</p>
+						<p>Can you help them reach their online peddling goals?</p>
+						<ul>Tasks:
+							<li>Create a Module named gemStore so we can get started on this marketing journey. </li>
+							<li>Attach the gemStore module to our HTML page with a Directive. </li>
+							<li>In index.html, create a simple Expression to display a friendly "Hello, Angular!" message. </li>
+						</ul>
+						<p>app.js (files for setting up the AngularJs App)</p> 
+						<p><strong>var app = angular.module('gemStore', []);</strong></p>
+						<br>
+						<p>index.html (files for setting up the AngularJs App)</p>
+<!--1.3--> 	    <h2>1.3 | Index HTML Setup</h2>
 	            <h2>Working With Data</h2>
-		          <p> Q. How do we get it out of this variable and onto our page? <br>
-		          	var gem = { <br>
-		          	name: 'Dodecahedron', <br>
-		          	price: 2.95, <br>
-		          	description: '...',<br>
-		          }
-		          </p>
-	          	<p>A. We need to use a controller</p>
+				        <p> Q. How do we get it out of this variable and onto our page? <br>
+				          	var gem = { <br>
+				          	name: 'Dodecahedron', <br>
+				          	price: 2.95, <br>
+				          	description: '...',<br>
+				          }
+				        </p>
+	          			<p>A. We need to use a controller</p>
 
 		        <h2>Controllers</h2> <!-- Controllers -->
-		          	<p>Controllers are where we define our apps beharvior by defininf functions and values.</p>
-		          	<p>Wrapping your JavaScript in a closure is a good habit!</p>
-		          	<p>(function(){ <br>
-		          		var app = angular.module('store', []); <br>
-		          		<br>
-		          		<br>
-		          	})();
-		          	</p>
+			          	<p>Controllers are where we define our apps beharvior by defininf functions and values.</p>
+			          	<p>Wrapping your JavaScript in a closure is a good habit!</p>
+			          	<p>(function(){ <br>
+			          		var app = angular.module('store', []); <br>
+			          		<br>
+			          		<br>
+			          	})();
+			          	</p>
 
-	          	<h2>1.4 | Coding excercise</h2>
+<!--1.4-->     	<h2>1.4 | Our First Controller</h2>
+						
 
-	          	<h2>1.5 | Built-In Directives</h2>
-	          		<h3>What We Have Learned So Far</h3>
-	          		<ul style="list-style-type:none">
-	          			<li><strong>Directives</strong> - HTML annotations that trigger JavaScript behaviors</li>
-	          			<li><strong>Modules</strong> - Where our application components live</li>
-	          			<li><strong>Controller</strong> - Where we add application behaviors</li>
-	          			<li><strong>Expressions</strong> - How values get displayed within the page</li>
-	          		</ul>
+<!--1.5-->     	<h2>1.5 | Built-In Directives</h2>
+		          		<h3>What We Have Learned So Far</h3>
+		          		<ul style="list-style-type:none">
+		          			<li><strong>Directives</strong> - HTML annotations that trigger JavaScript behaviors</li>
+		          			<li><strong>Modules</strong> - Where our application components live</li>
+		          			<li><strong>Controller</strong> - Where we add application behaviors</li>
+		          			<li><strong>Expressions</strong> - How values get displayed within the page</li>
+		          		</ul>
 	          		
-	          	<h2>1.6 | Coding excercise</h2>	            
+<!--1.6-->     	<h2>1.6 | Coding excercise</h2>	            
 	        </div>
         </div>
 <!-- <br><br><br><br><br> -->
