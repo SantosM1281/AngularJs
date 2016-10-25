@@ -372,14 +372,12 @@
         								/div>  														<br>
 		       					/section 															<br>
 		       			</p>
-<!--2.8--> 	    <h2>2.8</h2>
-
+<!--2.8--> 	    <h2>2.8 |  Using TabController </h2>
 	       				<h3>Whao, it's dynamic and stuff...</h3>
 	       					<p>When ng-click changes the value of the tab...						<br>
 	       						... {{tab}} expression automatically gets updated!</p>
 	       					<p>Expressions define a 2-way Data Binding...							<br>
 	       						this mean Expression are re-evaluated when a property changes.</p>
-
 	       				<h3>Let's add the tab content panels</h3>
 	       					<p>div class="panel" ng-show="tab === 1"			<br>
 	       						h4 Description/h4 								<br>
@@ -410,6 +408,21 @@
 	       						/section</p>
 	       				<h3>Setting the Active Class</h3>
 	       						<p>We need to set the class to active if current tab is selected ...</p>
+<!--2.9--> 	    <h2>2.9 | Creating Gallery Controller </h2>
+	       				<p>Now that you're such a whiz with tabbed tab, can you apply what you've learned to our image gallery, too? Don't worry, we'll start slow… And there's a lot more in common than you might think!</p>
+	       				<ul>Tasks:
+	       					<li>Let's start with a Controller, just like last time. Call it GalleryController.</li>
+	       					<li>Initialize a current property of GalleryController with a value of 0.</li>
+	       					<li>Add a method to GalleryController called setCurrent that accepts a value and assigns it to current. If no value is passed in, set current to 0.</li>
+	       				</ul>
+	       				<p>app.js:</p>
+	       				<p>app.controller('GalleryController', function(){	<br>
+    							this.current = 0;							<br>
+    							this.setCurrent = function(newCurrent){		<br>
+      								this.current = newCurrent || 0;			<br>
+    							};											<br>
+							});</p>
+<!--2.10--> 	    <h2>2.10</h2>
 	       		<h2>3.1 | Forms and Models</h2>
 	       					<h3>More Directives: FOrms &amp; Models</h3>
 	       						<p>How can I let my users add content?</p>
