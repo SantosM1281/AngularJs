@@ -196,7 +196,7 @@
 					    		/div>...															<br>
 							</p>	
 						</ul>
-<!--1.7-->     	<h2>1.7 Look, More Gems!</h2>
+<!--1.7-->     	<h2>1.7 | Look, More Gems!</h2>
 						<ul>
 							<li>Looks like the Flatlanders have discovered more gems for us to sell in the gemStore. That's a relief! Follow the objectives below to add these new gems to the store.</li>
 							<li>You know how to display all the products, don't you? Use the correct directive to display all the products in product row divs. </li>
@@ -226,11 +226,6 @@
   								  /body>																<br>
 							</p>
 						</ul>
-	        </div>
-        </div>
-<!-- <br><br><br><br><br> -->
-       <div class="col-md-6">
-       		<div class="section-secondary">
 <!--2.1--> 	    <h2>2.1 | Built-in Directives</h2>
        				<ul>Gallery
        					<li>Filters and a New Directive</li>
@@ -438,6 +433,11 @@
         								/li>																						<br>
       								/ul>																							<br>
    							/div></p>	
+	        </div>
+        </div>
+<!-- <br><br><br><br><br> -->
+       <div class="col-md-6">
+       		<div class="section-secondary">
 <!--3.1--> 		<h2>3.1 | Forms and Models</h2>
 	       				<h3>More Directives: FOrms &amp; Models</h3>
 	       				<ul>REVIEW POPULATING TABS
@@ -505,14 +505,14 @@
     							/fieldset>																																	<br>
   							/form>																																			<br>
 	       				</p>
-				<h2>3.4 | Review Live Preview!</h2>
+<!--3.4--> 		<h2>3.4 | Review Live Preview!</h2>
 						<p>Display all three parts of the review in the preview blockquote.</p>
 						<ul>Tasks:
 							<li>In the strong tag, before Stars, put in the right expression to display review.stars. Keep the space prior to Stars</li>
 							<li>On the blank line with no tags put in the right expression to display review.body</li>
 							<li>In the cite tag, immediately after the -, put in the right expression to display review.author.</li>
 						</ul>
-				<h2>3.5 | Creating Review Controller</h2>
+<!--3.5--> 		<h2>3.5 | Creating Review Controller</h2>
     					<p>Create a ReviewController and inside of it an empty review ripe for the stuffing! Then below that create the functionality to create new reviews.</p>
     					<ul>Tasks:
     						<li>Create a new controller called ReviewController.</li>
@@ -523,7 +523,44 @@
     						<li>Reset the review to an empty object after it's been added to product.reviews.</li>
     					</ul>
     					<p>app.js:</p>
+<!--3.6-->		<h2>3.6 | Using Review Controller</h2>
+    					<p>Assign the review controller we just created to our form and use the alias reviewCtrl to reference it inside the form. On submission of the form save the new review.</p>
+    					<ul>Tasks:
+    						<li>Inside the form tag create a ng-controller attribute and assign it to the ReviewController with an alias of reviewCtrl.</li>
+    						<li>Inside the form tag create a ng-submit attribute. Set the value of the ng-submit attribute to call our new addReview function. Remember to pass in product when calling the addReview function.</li>
+    						<li>Prefix all three ng-models with the controller's alias.</li>
+    						<li>If you will notice, our live preview is no longer working. Try and figure out why and get the preview blockquote working again!</li>
+    					</ul>
+    					<p>index.html:</p>
+    					<p>
+						...																																							<br>
+						   form name="reviewForm" ng-controller="ReviewController as reviewCtrl"																					<br>
+						                                    ng-submit="reviewCtrl.addReview(product)">																				<br>
 
+					    <!--  Live Preview -->
+    					blockquote>																																					<br>
+      					<strong>{{reviewCtrl.review.stars}} Stars</strong>																											<br>
+      							{{reviewCtrl.review.body}}																															<br>
+      								 cite class="clearfix">—{{reviewCtrl.review.author}} </cite>																						<br>
+    					/blockquote>																																				<br>
+
+    					<!--  Review Form -->
+      				h4>Submit a Review /h4>																																			<br>
+      						fieldset class="form-group">																															<br>
+      							select ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">							<br>
+        							option value="">Rate the Product /option>																										<br>
+      							/select>																																			<br>
+      						/fieldset>																																				<br>
+					        fieldset class="form-group">																															<br>
+					           textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"> /textarea>		<br>
+					      	/fieldset>																																				<br>
+					        fieldset class="form-group">																															<br>
+					           input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />						<br>
+					        /fieldset>																																				<br>
+                            fieldset class="form-group">																															<br>
+        					   input type="submit" class="btn btn-primary pull-right" value="Submit Review" />																		<br>
+      						/fieldset>																																				<br>
+  							/form>																																					<br>
        		</div>
        		
 
