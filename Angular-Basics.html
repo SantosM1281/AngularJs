@@ -231,7 +231,7 @@
 <!-- <br><br><br><br><br> -->
        <div class="col-md-6">
        		<div class="section-secondary">
-       			<h2>2.1 | Built-in Directives</h2>
+<!--2.1--> 	    <h2>2.1 | Built-in Directives</h2>
        				<ul>Gallery
        					<li>Filters and a New Directive</li>
     					<li>Using filters</li>
@@ -277,7 +277,7 @@
 	       					}
 	       					]]
 	       				</p>
-	       		<h2>2.2 | Using filters</h2>
+<!--2.2--> 	    <h2>2.2 | Using filters</h2>
 	       			 	<p>In the previous challenge we practiced displaying the prices of gems in our index.html. The first gem, Azurite, now costs $110.50 (due to supply shortages) but our current code doesn't display the price correctly.</p>
 	       			 	<ul>
 	       			 		<li>Use an Angular filter to display the price as a currency.</li>
@@ -286,13 +286,13 @@
 	       			 	<p>
 	       			 		em class="pull-right">{{product.price | currency}}/em>
 	       			 	</p>
-	       		<h2>2.3 | Displaying the First Image</h2>
-	       				<p> div class="gallery"> <br>
-								<img ng-src="{{product.images[0]}}"/> <br>
-							/div>
-						</p>
-
-				<h2>2.4 | Display All Thumbnails</h2>
+<!--2.3--> 	    <h2>2.3 | Displaying the First Image</h2>
+	       				<p>We've added images to all products as well – like any self respecting store should have. A product has an array of images we can use in our HTML. Let's get the first image to show on the page!</p>
+	       				<ul>
+	       					<li>We want to display the first full-sized image for each product. Can you figure out how?</li>
+	       				</ul>
+						<p><img ng-src="{{product.images[0]}}"/> </p>
+<!--2.4--> 	    <h2>2.4 | Display All Thumbnails</h2>
 					<p>
 						div class="gallery" <br> 
 					        div class="img-wrap" <br>
@@ -305,8 +305,7 @@
 					        ul<br>
 					    /div
 					</p>
-
-	       		<h2>2.5 | NO Images, NO Gallery</h2>
+<!--2.5--> 	    <h2>2.5 | NO Images, NO Gallery</h2>
 	       				<p>
 	       					div class="gallery" ng-show="product.images.length"<br>
           						img class="img img-circle img-thumbnail center-block" ng-src="{{product.images[0]}}" /> <br>
@@ -316,7 +315,7 @@
         					/div <br>
 	       				</p>
 
-	       		<h2>2.6 | Tabs Inside Out</h2>
+<!--2.6--> 	    <h2>2.6 | Tabs Inside Out</h2>
 	       				<h3>A Simple set of Tabs</h3>
 		       				<p>
 		       					section <br>
