@@ -278,16 +278,21 @@
 	       					]]
 	       				</p>
 	       		<h2>2.2 | Using filters</h2>
-	       				<p> using an angular filter to display the price as a currency <br> 
-	       					<em class="pull-right">{{product.price | currency}}</em> </p>
-
-	       			<h2>2.3 | Displaying the First Image</h2>
+	       			 	<p>In the previous challenge we practiced displaying the prices of gems in our index.html. The first gem, Azurite, now costs $110.50 (due to supply shortages) but our current code doesn't display the price correctly.</p>
+	       			 	<ul>
+	       			 		<li>Use an Angular filter to display the price as a currency.</li>
+	       			 	</ul>
+	       			 	<p>index.html:</p>
+	       			 	<p>
+	       			 		em class="pull-right">{{product.price | currency}}/em>
+	       			 	</p>
+	       		<h2>2.3 | Displaying the First Image</h2>
 	       				<p> div class="gallery"> <br>
 								<img ng-src="{{product.images[0]}}"/> <br>
 							/div>
 						</p>
 
-					<h2>2.4 | Display All Thumbnails</h2>
+				<h2>2.4 | Display All Thumbnails</h2>
 					<p>
 						div class="gallery" <br> 
 					        div class="img-wrap" <br>
@@ -301,7 +306,7 @@
 					    /div
 					</p>
 
-	       			<h2>2.5 | NO Images, NO Gallery</h2>
+	       		<h2>2.5 | NO Images, NO Gallery</h2>
 	       				<p>
 	       					div class="gallery" ng-show="product.images.length"<br>
           						img class="img img-circle img-thumbnail center-block" ng-src="{{product.images[0]}}" /> <br>
@@ -311,7 +316,7 @@
         					/div <br>
 	       				</p>
 
-	       			<h2>2.6 | Tabs Inside Out</h2>
+	       		<h2>2.6 | Tabs Inside Out</h2>
 	       				<h3>A Simple set of Tabs</h3>
 		       				<p>
 		       					section <br>
