@@ -306,13 +306,14 @@
 						    /ul> 																					<br>
 						</p>
 <!--2.5--> 	    <h2>2.5 | NO Images, NO Gallery</h2>
-	       				<p>
-	       					div class="gallery" ng-show="product.images.length"<br>
-          						img class="img img-circle img-thumbnail center-block" ng-src="{{product.images[0]}}" /> <br>
-          							ul class="clearfix" <br>
-            							li class="small-image pull-left thumbnail" ng-repeat="image in product.images" <img ng-src="{{image}}" /> /li <br>
-          							/ul <br>
-        					/div <br>
+						<p>Many times a product will be ready to sell, but won't have images yet (like our first one). In this case the images array will just be empty. Note the change in our gems array.</p>
+						<p>We don't want to display the .gallery element if there are no images. Create an expression on our .gallery div to make this happen.</p>
+	       				<ul>Tasks:
+	       					<li>Use the ng-show directive to make sure our image gallery is only displayed if a product has images.</li>
+	       				</ul>
+	       				<p>index.html:</p>
+	       				<p><!-- Image Gallery -->
+	       					div class="gallery" ng-show="product.images.length"
 	       				</p>
 <!--2.6--> 	    <h2>2.6 | Tabs Inside Out</h2>
 	       				<h3>A Simple set of Tabs</h3>
