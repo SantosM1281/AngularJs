@@ -191,7 +191,22 @@
 		          			<li><strong>Expressions</strong> - How values get displayed within the page</li>
 		          		</ul>
 	          		
-<!--1.6-->     	<h2>1.6 | Coding excercise</h2>	            
+<!--1.6-->     	<h2>1.6 | Coding excercise | Not For Sale</h2>
+						<p>We've added two new properties to our product that we can use on the HTML side. The first of these two is canPurchase, which is a boolean indicating if the product can be purchased. The second is soldOut which, as you can imagine, is a boolean indicating if the product is sold out.</p>	            
+						<p>Use these two new properties in our HTML page to solve the following objectives.</p>
+						<ul>Tasks:
+							<li>Use a directive to ensure that we can only see the "Add to Cart" button if the canPurchase property is true.</li>
+							<li>Our first gem is so popular that we've run out of stock already! Well, Flatlander gems are pretty rare, so it shouldn't be a big surprise. Luckily there is a soldOut property to our gem. When a gem is soldOut, hide the .product element.</li>
+							<p>
+								div ng-hide = "store.product.soldOut" class="product row">			<br>
+					      		h3>																	<br>
+					        		{{store.product.name}}											<br>
+					        	em class="pull-right">${{store.product.price}} /em>					<br>
+					      		/h3>																<br>
+					      		button ng-show="store.product.canPurchase">Add to Cart /button>		<br>
+					    		/div>...															<br>
+							</p>	
+						</ul>
 	        </div>
         </div>
 <!-- <br><br><br><br><br> -->
