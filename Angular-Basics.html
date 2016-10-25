@@ -422,7 +422,22 @@
       								this.current = newCurrent || 0;			<br>
     							};											<br>
 							});</p>
-<!--2.10--> 	    <h2>2.10</h2>
+<!--2.10--> 	<h2>2.10 | Using Gallery Controller</h2>
+						<p>Now that we've got an awesome GalleryController, let's wire it up to the page:</p>
+						<ul>Tasks:
+							<li>Attach GalleryController to the .gallery element that wraps our gallery; use the alias gallery.</li>
+							<li>Change the ng-src directive on the main image to use the current property. You'll need to access the current-th product image.</li>
+						</ul>
+						<p>index.html:</p>
+						<p><!-- Image Gallery  -->
+  							div class='gallery' ng-show="product.images.length" ng-controller="GalleryController as gallery">		<br>
+    							img ng-src="{{product.images[gallery.current]}}" />													<br>
+      								ul class="list-inline thumbs">																	<br>
+        								li class="thumbnail" ng-repeat="image in product.images">									<br>
+          									img ng-src="{{image}}" />																<br>
+        								/li>																						<br>
+      								/ul>																							<br>
+   							/div></p>	
 	       		<h2>3.1 | Forms and Models</h2>
 	       					<h3>More Directives: FOrms &amp; Models</h3>
 	       						<p>How can I let my users add content?</p>
