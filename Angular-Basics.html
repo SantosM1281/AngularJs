@@ -477,7 +477,7 @@
      							/blockquote>												<br>
    							/li>															<br>
 	       				</p>
-	       		<h2>3.3 | Create a Review Form</h2>
+<!--3.3--> 		<h2>3.3 | Create a Review Form</h2>
 	       				<p>We have provided a form below the list of reviews and a preview blockquote that will show when the form is being filled out. Add ng-model to each input item stars, body, and author. Remember, each one is a part of the review object as a whole.</p>
 	       				<ul>
 	       					<li>Use ng-model for review.stars select form field.</li>
@@ -486,35 +486,43 @@
 	       				</ul>
 	       				<p>index.html:</p>
 	       				<p>
-	       					<form name="reviewForm">
-...
-  <!--  Review Form -->
-  <h4>Submit a Review</h4>
-    <fieldset class="form-group">
-      <select ng-model="review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars">
-        <option value="">Rate the Product</option>
-      </select>
-    </fieldset>
-    <fieldset class="form-group">
-      <textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
-    </fieldset>      
-    <fieldset class="form-group">
-      <input ng-model="review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
-    </fieldset>
-    <fieldset class="form-group">
-      <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
-    </fieldset>
-  </form>
+	       					form name="reviewForm">																															<br>
+							...<!--  Review Form -->																														<br>
+ 							h4>Submit a Review /h4>																															<br>
+    							fieldset class="form-group">																												<br>
+      								select ng-model="review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars">							<br>
+        								option value="">Rate the Product /option>																							<br>
+      								/select>																																<br>
+    							/fieldset>																																	<br>
+    							fieldset class="form-group">																												<br>
+						      		textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"> /textarea>	<br>
+						    	/fieldset>      																															<br>
+						    	fieldset class="form-group">																												<br>
+      								input ng-model="review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />					<br>
+    							/fieldset>																																	<br>
+    							fieldset class="form-group">																												<br>
+      								input type="submit" class="btn btn-primary pull-right" value="Submit Review" />															<br>
+    							/fieldset>																																	<br>
+  							/form>																																			<br>
 	       				</p>
-
-
-
-    
-    
-
-
-
-
+				<h2>3.4 | Review Live Preview!</h2>
+						<p>Display all three parts of the review in the preview blockquote.</p>
+						<ul>Tasks:
+							<li>In the strong tag, before Stars, put in the right expression to display review.stars. Keep the space prior to Stars</li>
+							<li>On the blank line with no tags put in the right expression to display review.body</li>
+							<li>In the cite tag, immediately after the -, put in the right expression to display review.author.</li>
+						</ul>
+				<h2>3.5 | Creating Review Controller</h2>
+    					<p>Create a ReviewController and inside of it an empty review ripe for the stuffing! Then below that create the functionality to create new reviews.</p>
+    					<ul>Tasks:
+    						<li>Create a new controller called ReviewController.</li>
+    						<li>Set our review variable to an empty object when the ReviewController is created.</li>
+    						<li>Create an empty function named addReview in your ReviewController.</li>
+    						<li>We'll pass in the product we want to review to our addReview function. Edit your function declaration to accept a product parameter.</li>
+    						<li>When addReview is called with a product, it should add the review from the controller to the passed-in product's reviews array. Implement this functionality in the addReview method.</li>
+    						<li>Reset the review to an empty object after it's been added to product.reviews.</li>
+    					</ul>
+    					<p>app.js:</p>
 
        		</div>
        		
