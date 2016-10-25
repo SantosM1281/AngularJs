@@ -207,6 +207,36 @@
 					    		/div>...															<br>
 							</p>	
 						</ul>
+<!--1.7-->     	<h2>1.7 Look, More Gems!</h2>
+						<ul>
+							<li>Looks like the Flatlanders have discovered more gems for us to sell in the gemStore. That's a relief! Follow the objectives below to add these new gems to the store.</li>
+							<li>You know how to display all the products, don't you? Use the correct directive to display all the products in product row divs. </li>
+							<p>app.js</p>
+							<p>
+								(function() {									<br>
+  								var app = angular.module('gemStore', []);		<br>
+  								app.controller('StoreController', function(){	<br>
+    								this.products = gems;						<br>
+  								});												<br>
+ 								var gems = [									<br>
+    							{ name: 'Azurite', price: 2.95 },				<br>
+    							{ name: 'Bloodstone', price: 5.95 },			<br>
+    							{ name: 'Zircon', price: 3.95 }					<br>
+  								  ];											<br>
+								})();											<br>
+							</p>
+							<p>index.html</p>
+							<p>
+								  body class="container" ng-controller="StoreController as store">		<br>
+    								div class="product row" ng-repeat="product in store.products">		<br>
+      									h3>																<br>
+        									{{product.name}}											<br>
+        									em class="pull-right">${{product.price}} /em>				<br>
+      										/h3>														<br>
+    								/div>																<br>
+  								  /body>																<br>
+							</p>
+						</ul>
 	        </div>
         </div>
 <!-- <br><br><br><br><br> -->
