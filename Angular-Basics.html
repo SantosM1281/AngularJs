@@ -438,7 +438,7 @@
         								/li>																						<br>
       								/ul>																							<br>
    							/div></p>	
-<!--3.1--> 	<h2>3.1 | Forms and Models</h2>
+<!--3.1--> 		<h2>3.1 | Forms and Models</h2>
 	       				<h3>More Directives: FOrms &amp; Models</h3>
 	       				<ul>REVIEW POPULATING TABS
 	       					<li>Forms and Models</li>
@@ -459,18 +459,58 @@
 	       				</ul>
 	       				<p>How can I let my users add content?</p>
 	       				<p>Adding reviews to our products</p>
-<!--3.2--> 	<h2>3.2 | Displaying Reviews should seem repetitive</h2>
-	       					<p>We added reviews to all the products, as you can see in the js file. Inside our Reviews tab display ALL the reviews for a product. Make sure you show the reviews body, author, and stars.</p>
-	       						<ul>Tasks:
-	       							<li>You need to create multiple li's for each review that exists.</li>
-	       							<li>Set the blockquote stars ( strong tag) to the review stars.</li>
-	       							<li>Add the review body between the strong & cite tags.</li>
-	       							<li>Set the cite to the review author.</li>
-	       						</ul>
-	       						<p>index.html:</p>
+<!--3.2--> 		<h2>3.2 | Displaying Reviews should seem repetitive</h2>
+	       				<p>We added reviews to all the products, as you can see in the js file. Inside our Reviews tab display ALL the reviews for a product. Make sure you show the reviews body, author, and stars.</p>
+	       				<ul>Tasks:
+	       					<li>You need to create multiple li's for each review that exists.</li>
+	       					<li>Set the blockquote stars ( strong tag) to the review stars.</li>
+	       					<li>Add the review body between the strong & cite tags.</li>
+	       					<li>Set the cite to the review author.</li>
+	       				</ul>
+	       				<p>index.html:</p>
+	       				<p>
+	       					li ng-repeat="review in product.reviews"> 						<br>
+    							blockquote> 												<br>
+      								strong>{{review.stars}} Stars /strong>					<br>
+      								{{review.body}}											<br>
+      									cite class="clearfix">— {{review.author}} /cite>	<br>
+     							/blockquote>												<br>
+   							/li>															<br>
+	       				</p>
+	       		<h2>3.3 | Create a Review Form</h2>
+	       				<p>We have provided a form below the list of reviews and a preview blockquote that will show when the form is being filled out. Add ng-model to each input item stars, body, and author. Remember, each one is a part of the review object as a whole.</p>
+	       				<ul>
+	       					<li>Use ng-model for review.stars select form field.</li>
+	       					<li>Use ng-model for review.body for the forms textarea.</li>
+	       					<li>Use ng-model for review.author – the email field.</li>
+	       				</ul>
+	       				<p>index.html:</p>
+	       				<p>
+	       					<form name="reviewForm">
+...
+  <!--  Review Form -->
+  <h4>Submit a Review</h4>
+    <fieldset class="form-group">
+      <select ng-model="review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars">
+        <option value="">Rate the Product</option>
+      </select>
+    </fieldset>
+    <fieldset class="form-group">
+      <textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+    </fieldset>      
+    <fieldset class="form-group">
+      <input ng-model="review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+    </fieldset>
+    <fieldset class="form-group">
+      <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+    </fieldset>
+  </form>
+	       				</p>
 
 
 
+    
+    
 
 
 
