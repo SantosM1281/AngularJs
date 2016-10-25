@@ -293,18 +293,18 @@
 	       				</ul>
 						<p><img ng-src="{{product.images[0]}}"/> </p>
 <!--2.4--> 	    <h2>2.4 | Display All Thumbnails</h2>
-					<p>
-						div class="gallery" <br> 
-					        div class="img-wrap" <br>
-					          <img ng-src="{{product.images[0]}}" /><br>
-					        /div <br>
-					        ul class="img-thumbnails clearfix"><br>
-					          li class="small-image pull-left thumbnail" ng-repeat="image in product.images" <br>
-					            img ng-src="{{image}}" /><br>
-					          li<br>
-					        ul<br>
-					    /div
-					</p>
+						<p>Our 2-dimensional clients have worked hard to produce multiple images for their gems. Display all the thumbnails inside our gallery without repeating yourself by using an Angular directive on the li.thumbnail element.</p>
+						<ul>Tasks:
+							<li>Make the li's repeat for each image in the image array. Use the variable image as your identifier.</li>
+							<li>Now that we have image available from our ng-repeat let's replace the product.images[0] with it. </li>
+						</ul>
+						<p>
+							ul class="img-thumbnails clearfix">														<br>
+						        li class="small-image pull-left thumbnail" ng-repeat="image in product.images" 		<br>
+						            img ng-src="{{image}}" />														<br>
+						        /li>																				<br>
+						    /ul> 																					<br>
+						</p>
 <!--2.5--> 	    <h2>2.5 | NO Images, NO Gallery</h2>
 	       				<p>
 	       					div class="gallery" ng-show="product.images.length"<br>
@@ -314,7 +314,6 @@
           							/ul <br>
         					/div <br>
 	       				</p>
-
 <!--2.6--> 	    <h2>2.6 | Tabs Inside Out</h2>
 	       				<h3>A Simple set of Tabs</h3>
 		       				<p>
