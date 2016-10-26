@@ -824,39 +824,113 @@
 						<p>index.html</p>
 						<p><!-- Image Gallery  -->
   							product-gallery> /product-gallery></p>		
-<!--5.1-->		<h2>5.1 |</h2>
-  				<p></p>
-						<ul>
-							<li></li>
-							<li></li>
-							<li></li>
+<!--5.1-->		<h2>5.1 | Services</h2>
+						<ul>MODULE INCEPTION
+							<li>Dependencies</li>
+							<li>Refactoring into a Module</li>
 						</ul>
-						<p></p>
+						<ul>SECTION 2
+							<li>Services</li>
+							<li>Built-in Angular Services </li>
+<!--5.2-->		<h2>5.2 | Refactoring into a Module</h2>
+  				<p>After that we will need a way to encapsulate our directives in order to give our app access to them. We can use a module to do this! It is time for Module inception! There is a new js file provided for you — products.js; extract all store directives(descriptions, specs, reviews, title, gallery, and tabs) and paste them inside this new file. Then create a new module that we will make our original gemStore module require as a dependency.</p>
+						<ul>Tasks:
+							<li>Create a new Module named store-directives to encapsulate our store Directives.</li>
+							<li>Move the Directive definitions from app.js into products.js.</li>
+							<li>Give gemStore Module access to the directives by adding a dependency to gemStore's definition.</li>
+							<li>Link in the new products.js file.</li>
+						</ul>
+						<p>products.js:</p>
 						<p>
+							(function() {												<br>
+  								var app=angular.module('store-directives', []);			<br>
+    								app.directive("productDescription", function() {	<br>
+    								return {											<br>
+								      restrict: 'E',									<br>
+								      templateUrl: "product-description.html"			<br>
+								    };													<br>
+								});														<br>
+
+  								app.directive("productReviews", function() {			<br>
+								    return {											<br>
+								      restrict: 'E',									<br>
+								      templateUrl: "product-reviews.html"				<br>
+								    };													<br>
+								});														<br>
+
+							  	app.directive("productSpecs", function() {				<br>
+							    	return {											<br>
+							      	  restrict:"A",										<br>
+							          templateUrl: "product-specs.html"					<br>
+							    	};													<br>
+							 	});														<br>
+
+							  	app.directive("productTabs", function() {				<br>
+								    return {											<br>
+								      restrict: "E",									<br>
+								      templateUrl: "product-tabs.html",					<br>
+								      controller: function() {							<br>
+								        this.tab = 1;									<br>
+
+								        this.isSet = function(checkTab) {				<br>
+								          return this.tab === checkTab;					<br>
+								        };												<br>
+
+								        this.setTab = function(activeTab) {				<br>
+								          this.tab = activeTab;							<br>
+								        };												<br>
+								      },												<br>
+								      controllerAs: "tab"								<br>
+								    };													<br>
+							  	});														<br>
+
+							  	app.directive("productGallery", function() {			<br>
+								    return {											<br>
+								      restrict: "E",									<br>
+								      templateUrl: "product-gallery.html",				<br>
+								      controller: function() {							<br>
+								        this.current = 0;								<br>
+								        this.setCurrent = function(imageNumber){		<br>
+								          this.current = imageNumber || 0;				<br>
+								        };												<br>
+								      },												<br>
+								      controllerAs: "gallery"							<br>
+								    };													<br>	
+							  	});														<br>
+							})();  														<br>
 						</p>
-<!--5.2-->		<h2>5.2 |</h2>
-  				<p></p>
-						<ul>
-							<li></li>
-							<li></li>
-							<li></li>
-						</ul>
-						<p></p>
+						<p>index.html:</p>
 						<p>
-						</p>
-<!--5.3-->		<h2>5.3 |</h2>
-  				<p></p>
-						<ul>
-							<li></li>
-							<li></li>
-							<li></li>
+							!DOCTYPE html>																	<br>
+							html ng-app="gemStore">															<br>
+  								head>																		<br>
+							    	link rel="stylesheet" type="text/css" href="bootstrap.min.css" />		<br>
+							    	script type="text/javascript" src="angular.min.js"></script>			<br>
+							    	script type="text/javascript" src="app.js"></script>					<br>
+							    	script type="text/javascript" src="products.js"></script>				<br>
+							  	/head>																		<br>
+							</p>
+<!--5.3-->		<h2>5.3 | Built-in Angular Services</h2>
+  				<p>We can use the built-in $http Service to make requests to a server (or in our case a json file). Give our StoreController access to the products using a service.</p>
+						<ul>Tasks:
+							<li>Pass our store controller the $http Service.</li>
+							<li>get the store-products.json using the $http Service.</li>
+							<li>Attach a success to our get call.</li>
+							<li>Name the first parameter of the success function data.</li>
+							<li>Give our StoreController access to the products by setting products equal to the data given to us with the http service's success promise.</li>
 						</ul>
-						<p></p>
+						<p>app.js: </p>
 						<p>
+							app.controller('StoreController', ['$http', function($http){		<br>
+  								var store = this;												<br>
+  								store.products = [];											<br>
+
+  								$http.get('/store-products.json').success(function(data){		<br>
+    								store.products = data;										<br>
+  								});																<br>
+							}]);																<br>
 						</p>
        		</div>
-       		
-
       </div>
 
       <hr>
