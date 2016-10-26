@@ -541,11 +541,11 @@
     					blockquote>																																					<br>
       					<strong>{{reviewCtrl.review.stars}} Stars</strong>																											<br>
       							{{reviewCtrl.review.body}}																															<br>
-      								 cite class="clearfix">—{{reviewCtrl.review.author}} </cite>																						<br>
+      								 cite class="clearfix">—{{reviewCtrl.review.author}} </cite>																					<br>
     					/blockquote>																																				<br>
 
     					<!--  Review Form -->
-      				h4>Submit a Review /h4>																																			<br>
+      					h4>Submit a Review /h4>																																		<br>
       						fieldset class="form-group">																															<br>
       							select ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">							<br>
         							option value="">Rate the Product /option>																										<br>
@@ -561,6 +561,299 @@
         					   input type="submit" class="btn btn-primary pull-right" value="Submit Review" />																		<br>
       						/fieldset>																																				<br>
   							/form>																																					<br>
+<!--3.7-->		<h2>3.7 | Form Validation</h2>
+  						<p>Use the fancy directives you just learned to validate the new review form.</p>
+  						<ul>Tasks:
+  							<li>Turn off default HTML validation.</li>
+  							<li>Mark stars & author as required fields.</li>
+  							<li>Prevent the submit if not $valid.</li>
+  						</ul>
+  						<p>index.html:</p>
+  						<p>
+							form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>	<br>
+                            <!--  Live Preview -->				
+    						blockquote >																																		<br>
+      						<strong>{{reviewCtrl.review.stars}} Stars</strong>																									<br>
+      								{{reviewCtrl.review.body}}																													<br>
+     						cite class="clearfix">—{{reviewCtrl.review.author}} /cite>																							<br>
+    						/blockquote>																																		<br>
+    						<!--  Review Form -->
+    						h4>Submit a Review</h4>																																<br>
+    						fieldset class="form-group">																														<br>
+    							select ng-model="reviewCtrl.review.stars" class="form-control" 																					<br>
+      								ng-options="stars for stars in [5,4,3,2,1]" title="Stars" required>																			<br>
+      									option value="">Rate the Product /option>																								<br>
+   								/select>																																		<br>
+    							/fieldset>																																		<br>
+    							fieldset class="form-group">																													<br>
+      								textarea ng-model="reviewCtrl.review.body" class="form-control" 																			<br>
+      									placeholder="Write a short review of the product..." title="Review"> /textarea>															<br>
+    							/fieldset>																																		<br>
+    							fieldset class="form-group">																													<br>
+      								input ng-model="reviewCtrl.review.author" type="email" class="form-control" 																<br>
+      									placeholder="jimmyDean@example.org" title="Email" required/>																			<br>
+    							/fieldset>																																		<br>	
+    							fieldset class="form-group">																													<br>
+      								input type="submit" class="btn btn-primary pull-right" value="Submit Review" />																<br>
+    							/fieldset>																																		<br>
+  								/form>																																			<br>
+<!--3.8-->		<h2>3.8 | Form Styling</h2>
+						<p>Give the defined classes in your css colors. See the magic of ng-invalid/ng-valid at work!</p>
+						<ul>Tasks:
+							<li>For elements with both the .ng-invalid and .ng-dirty classes, give the border-color of red.</li>
+							<li>For ng-valid && ng-dirty, give a green border-color.</li>
+						</ul>
+						<p>application.css:</p>
+						<p>
+							.ng-invalid.ng-dirty {		<br>
+  								border-color: red;		<br>
+							}							<br>
+
+							.ng-valid.ng-dirty {		<br>
+  								border-color: green;	<br>
+							}
+<!--3.9-->		<h2>3.9 | Showing CreatedOn Date</h2>
+						<p>It's time to show when a review was created using the createdOn property. Follow the task below to add this in.</p>
+						<ul>Tasks
+							<li>Upon saving a review, we're running the addReview function in our app.js JavaScript file. Before the review is pushed onto the array, add to this.review a new property createdOn with a value Date.now().</li>
+							<li>In the review template, we're already displaying most of the information about our review. Add the createdOn date to the review within the cite element. We want it to say "-<Author> on <date>".</li>
+							<li>Use the date filter on the createdOn property in the template.</li>
+						</ul>
+						<p>app.js:</p>
+							…																						<br>
+  							this.addReview = function(product){														<br>
+    						this.review.createdOn = Date.now();														<br>
+    							product.reviews.push(this.review);													<br>
+    								this.review = {};																<br>
+  								};																					<br>
+							…																						<br>
+						<p>
+							li ng-repeat="review in product.reviews">												<br>
+    						  blockquote>																			<br>
+      							strong>{{review.stars}} Stars /strong>												<br>	
+      							{{review.body}}																		<br>
+      								cite class="clearfix">—{{review.author}} on {{review.createdOn | date}} /cite>	<br>
+    						  /blockquote>																			<br>
+  							/li>																					<br>
+
+						</p>
+<!--4.1-->		<h2>4.1 | Custom Directives</h2>
+		  				<ul>TEMPLATING WITH CUSTOM DIRECTIVES
+		  					<li>Directives</li>
+		  					<li>Refactoring Description Tab</li>
+		  					<li>Creating an Element Directive</li>
+		  					<li>Creating an Attribute Directive</li>
+		  				</ul>
+		  				<ul>SMARTER CUSTOM DIRECTIVES
+		  					<li>Directive Controllers</li>
+		  					<li>Refactoring Product Tabs</li>
+		  					<li>Refactoring Product Gallery</li>
+		  				</ul>
+<!--4.2-->		<h2>4.2 | Refactoring Description Tab</h2>
+						<p>Notice that we have created an empty html file called product-description.html. Separate out the Description Tab's content into the new html file. Include the product-description.html in our index where it belongs.</p>
+						<ul>Tasks:
+							<li>Separate out our description tab into product-description.html.</li>
+							<li>Include product-description.html inside the description tab.</li>
+						</ul>
+						<p>product-description.html: </p>
+						<p>
+							h4>Description</h4>								<br>
+							blockquote>{{product.description}} /blockquote>	<br>
+						</p>
+						<p>index.html: </p>
+						<p> <!--  Description Tab's Content  -->
+  							div ng-show="tab.isSet(1)" ng-include="'product-description.html'">           
+  							/div>
+						</p>	
+<!--4.3-->		<h2>4.3 | Creating an Element Directive</h2>
+  						<p>Instead of using ng-include, let's create a custom directive called productDescription.</p>
+						<ul>Tasks:
+							<li>Create an Element Directive for our Description div that includes the product-description.html.</li>
+							<li>Include the file on the page using a custom directive tag instead of ng-include.</li>
+						</ul>
+						<p>app.js:</p>
+						<p>
+							 app.directive('productDescription', function(){ 		<br>
+    							return {											<br>
+     								restrict: 'E',									<br>
+      									templateUrl: 'product-description.html'		<br>
+    							};													<br>
+  							 });													<br>
+						</p>			
+						<p>index.html: </p>
+						<p>	<!--  Description Tab's Content  -->
+ 							product-description ng-show="tab.isSet(1)"> /product-description>
+ 						</p>
+<!--4.4-->		<h2>4.4 | Creating an Attribute Directive</h2>
+  						<p>As you probably have noticed, we have built out more information on the specs tab. Let's refactor the contents of our specs div into an attribute directive.</p>
+						<ul>Tasks:
+							<li>Move the contents inside the specs div to the product-specs.html.</li>
+							<li>Create a new attribute directive for our specs tag called productSpecs. Have it use our new product-specs.html template.</li>
+							<li>In index.html, use your new attribute directive to show the product specs.</li>
+						</ul>
+						<p>product-description.html: </p>
+						<p>			
+							h4>Specs</h4>
+						 	ul class="list-unstyled">
+								  li>
+								    <strong>Shine</strong>
+								    : {{product.shine}}</li>
+								  li>
+								    <strong>Faces</strong>
+								    : {{product.faces}}</li>
+								  li>
+								    <strong>Rarity</strong>
+								    : {{product.rarity}}</li>
+								  li>
+								    <strong>Color</strong>
+								    : {{product.color}}</li>
+							/ul>
+						</p>
+						<p>
+							app.directive("productSpecs", function(){		<br>
+    							return {									<br>
+      								restrict: 'A',							<br>
+      								templateUrl: 'product-specs.html'		<br>
+    							};											<br>
+  							});												<br>
+						</p>	
+<!--4.5-->		<h2>4.5 | Refactoring Product Tabs</h2>
+  						<p>We feel like the Product Tabs section could be better managed if it were a directive.</p>
+						<ul>Tasks:
+							<li>Create an element directive called productTabs.</li>
+							<li>Tell your new directive to use the product-tabs.html template with the templateUrl attribute.</li>
+							<li>Give our productTabs directive all the tab functionality that is currently inside our TabController. Make sure that you do not delete the TabController yet. We don't want to break the site.</li>
+							<li>Add the controllerAs attribute to your directive setting it to tab so the directive knows what all the references to tab in product-tabs.html are.</li>
+						</ul>
+						<p>app.js</p>
+						<p>
+							app.directive('productTabs', function(){		<br>
+    							return {									<br>
+      								restrict: 'E',							<br>
+      								templateUrl: 'product-tabs.html',		<br>
+      								controller: function(){					<br>
+        								this.tab = 1;						<br>
+
+    							this.isSet = function(checkTab) {			<br>
+     							  return this.tab === checkTab;				<br>
+    							};											<br>
+
+    							this.setTab = function(setTab) {			<br>
+      							  this.tab = setTab;						<br>
+    							};											<br>
+    							  },										<br>
+    							  controllerAs: 'tab'						<br>
+							    };											<br>
+ 							});												<br>
+						</p>
+						<ul>
+							<li>Put the tabs section inside of the provided product-tabs.html. Remove the ng-controller from the section inside the file once moved.</li>
+						</ul>
+						<p>product-description.html: </p>
+						<p>
+							section>																	<br>
+							  ul class="nav nav-pills">													<br>
+							     li ng-class="{ active:tab.isSet(1) }">									<br>
+							      <a href ng-click="tab.setTab(1)">Description</a>						<br>
+							     /li>																	<br>
+							     li ng-class="{ active:tab.isSet(2) }">									<br>
+							      <a href ng-click="tab.setTab(2)">Specs</a>							<br>
+							     /li>																	<br>
+							     li ng-class="{ active:tab.isSet(3) }">									<br>
+							      <a href ng-click="tab.setTab(3)">Reviews</a>							<br>
+							     /li>																	<br>
+							  /ul>																		<br>
+							  <!--  Description Tab's Content  -->
+							   div ng-show="tab.isSet(1)" ng-include="'product-description.html'">		<br>
+							   /div>																	<br>
+
+							  <!--  Spec Tab's Content  -->
+							   div product-specs ng-show="tab.isSet(2)"> /div>							<br>
+
+							  <!--  Review Tab's Content  -->
+							   product-reviews ng-show="tab.isSet(3)"> /product-reviews>				<br>
+							 /section> 																	<br>
+						</p>
+						<ul>
+							<li>Use our new productTabs directive where the tabs section used to be in our index.html.</li>
+						</ul>
+						<p>index.html:</p>
+						<p><!-- Product Tabs  -->
+  							product-tabs> /product-tabs>
+						</p>
+<!--4.6-->		<h2>4.6 | Refactoring Product Gallery</h2>
+  						<p>Now that we've separated the Product Tabs, why not separate the Gallery too</p>
+						<ul>Tasks:
+							<li>Create an element directive called productGallery.</li>
+							<li>Tell your new directive to use the product-gallery.html template with the templateUrl attribute.</li>
+							<li>Give our productGallery directive all the gallery functionality that is currently inside our GalleryController. Make sure that you do not delete the GalleryController yet. We don't want to break the site.</li>
+							<li>Add the controllerAs attribute to your directive setting it to gallery so the directive knows what all the references to gallery in product-gallery.html are.</li>
+							<li>Put the gallery div inside of the provided product-gallery.html. Remove the ng-controller from the div inside the file once moved.</li>
+							<li>Now remove the image gallery div from index.html and the GalleryController from app.js.</li>
+							<li>Use our new productGallery directive where the gallery div used to be in our index.html.</li>
+						</ul>
+						<p>product-description.html: </p>
+						<p>
+							div> 																						<br>
+    							div class="img-wrap"> 																	<br>
+      								img ng-src="{{product.images[gallery.current]}}" /> 								<br>
+    							/div> 																					<br>
+    							ul class="img-thumbnails clearfix"> 													<br>
+      								li class="small-image pull-left thumbnail" ng-repeat="image in product.images"> 	<br>
+        								img ng-src="{{image}}" /> 														<br>
+      								/li>  																				<br>
+    							/ul> 																					<br>
+							/div> 																						<br>
+						</p>
+						<p>app.js:</p>
+						<p>
+							app.directive('productGallery', function(){ 				<br>
+    							return { 												<br>	
+      								restrict: "E", 										<br>
+      								templateUrl: "product-gallery.html", 				<br>
+      								controller: function(){ 							<br>
+								        this.current = 0; 								<br>
+								        this.setCurrent = function(imageNumber){ 		<br>
+								        this.current = imageNumber || 0; 				<br>
+								      }; 												<br>
+								     }, 												<br>
+								     controllerAs: "gallery" 							<br>
+								    }; 													<br>
+								});	      	 											<br>
+						</p>
+						<p>index.html</p>
+						<p><!-- Image Gallery  -->
+  							product-gallery> /product-gallery></p>		
+<!--5.1-->		<h2>5.1 |</h2>
+  				<p></p>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<p></p>
+						<p>
+						</p>
+<!--5.2-->		<h2>5.2 |</h2>
+  				<p></p>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<p></p>
+						<p>
+						</p>
+<!--5.3-->		<h2>5.3 |</h2>
+  				<p></p>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<p></p>
+						<p>
+						</p>
        		</div>
        		
 
